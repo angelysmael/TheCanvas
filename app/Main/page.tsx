@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from 'next/image'
 
 export default function Main() {
@@ -16,6 +19,8 @@ export default function Main() {
       height={250}
       alt="Test Image"
       />
+
+      
 
     </div>
   );
