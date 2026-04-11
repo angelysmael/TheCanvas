@@ -1,27 +1,11 @@
-import Link from 'next/link';
-
-const NavigationalBar = () => {
+export default function NavigationalBar() {
   return (
-    // 'flex' puts items in a row, 'gap' adds space between them
-    <nav className="flex gap-8 p-6 bg-blue-100">
-      <Link href="/">
-      HOME
-      </Link>
-
-      <Link href="/Main">
-      MAIN
-      </Link>
-
-      <Link href="/ContactForm">
-      Contact Form
-      </Link>
-
-      <Link href="/TestPage">
-      Test Page
-      </Link>
-      
-    </nav>
+    <div className="sidebar">
+      <ul>
+        <li className="active">🏠︎ Home</li>
+        <li>🔍︎ Explore</li>
+        <li>✉︎ Contact</li>
+      </ul>
+    </div>
   );
-};
-
-export default NavigationalBar;
+}
