@@ -1,10 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavigationalBar() {
+  const pathname = usePathname();
+
   return (
     <div className="sidebar">
+      
       <ul>
-        <li className="active">
+
+        <li className={pathname === "/" ? "active" : ""}>
           <Link
             href="/"
             style={{
@@ -19,7 +26,7 @@ export default function NavigationalBar() {
           </Link>
         </li>
 
-        <li>
+        <li className={pathname === "/Main" ? "active" : ""}>
           <Link
             href="/Main"
             style={{
@@ -34,7 +41,7 @@ export default function NavigationalBar() {
           </Link>
         </li>
 
-        <li>
+        <li className={pathname === "/ContactForm" ? "active" : ""}>
           <Link
             href="/ContactForm"
             style={{
@@ -48,7 +55,9 @@ export default function NavigationalBar() {
             ✉ Contact
           </Link>
         </li>
+
       </ul>
+
     </div>
   );
 }
