@@ -2,18 +2,23 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function NavigationalBar() {
   const pathname = usePathname();
+
+  // small state to track last clicked nav item
+  const [activeLink, setActiveLink] = useState(pathname);
 
   return (
     <div className="sidebar">
       
       <ul>
 
-        <li className={pathname === "/" ? "active" : ""}>
+        <li className={activeLink === "/" ? "active" : ""}>
           <Link
             href="/"
+            onClick={() => setActiveLink("/")}
             style={{
               display: "block",
               width: "100%",
@@ -26,9 +31,10 @@ export default function NavigationalBar() {
           </Link>
         </li>
 
-        <li className={pathname === "/Main" ? "active" : ""}>
+        <li className={activeLink === "/Main" ? "active" : ""}>
           <Link
             href="/Main"
+            onClick={() => setActiveLink("/Main")}
             style={{
               display: "block",
               width: "100%",
@@ -41,9 +47,10 @@ export default function NavigationalBar() {
           </Link>
         </li>
 
-        <li className={pathname === "/ContactForm" ? "active" : ""}>
+        <li className={activeLink === "/ContactForm" ? "active" : ""}>
           <Link
             href="/ContactForm"
+            onClick={() => setActiveLink("/ContactForm")}
             style={{
               display: "block",
               width: "100%",
